@@ -1,0 +1,3657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>Modbus Poll user manual</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Modbus Poll user manual</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_modbus_poll">1. Modbus Poll</a>
+<ul class="sectlevel2">
+<li><a href="#_system_requirements_for_modbus_poll">1.1. System requirements for Modbus Poll</a></li>
+<li><a href="#_end_user_license_agreement">1.2. End User License Agreement</a></li>
+</ul>
+</li>
+<li><a href="#_modbus_poll_features">2. Modbus Poll Features</a>
+<ul class="sectlevel2">
+<li><a href="#_connections">2.1. Connections</a></li>
+<li><a href="#_supported_modbus_functions">2.2. Supported Modbus Functions</a></li>
+<li><a href="#_data_logging">2.3. Data logging</a></li>
+<li><a href="#_display_formats">2.4. Display formats</a></li>
+<li><a href="#_miscellaneous_features">2.5. Miscellaneous features</a></li>
+</ul>
+</li>
+<li><a href="#_overview">3. Overview</a>
+<ul class="sectlevel2">
+<li><a href="#_help_from_anywhere">3.1. Help from anywhere</a></li>
+<li><a href="#_name_cells">3.2. Name cells</a></li>
+<li><a href="#_value_cells">3.3. Value cells</a></li>
+<li><a href="#_change_font">3.4. Change font</a></li>
+<li><a href="#_conditional_colors">3.5. Conditional colors</a></li>
+<li><a href="#_scaling">3.6. Scaling</a></li>
+<li><a href="#_real_time_charting">3.7. Real time charting</a></li>
+<li><a href="#_open_a_new_window">3.8. Open a new window</a></li>
+</ul>
+</li>
+<li><a href="#_connection_dialog">4. Connection dialog</a>
+<ul class="sectlevel2">
+<li><a href="#_connection">4.1. Connection</a></li>
+<li><a href="#_serial_settings">4.2. Serial Settings</a></li>
+<li><a href="#_mode">4.3. Mode</a></li>
+<li><a href="#_response_timeout">4.4. Response timeout</a></li>
+<li><a href="#_min_delay_between_polls">4.5. Min delay between polls</a></li>
+<li><a href="#_remote_server">4.6. Remote Server</a></li>
+<li><a href="#_advanced_settings">4.7. Advanced settings</a></li>
+</ul>
+</li>
+<li><a href="#_readwrite_definition">5. Read/Write definition</a>
+<ul class="sectlevel2">
+<li><a href="#_slave_id">5.1. Slave ID</a></li>
+<li><a href="#_function_code">5.2. Function code</a></li>
+<li><a href="#_address">5.3. Address</a></li>
+<li><a href="#_address_examples">5.4. Address examples</a></li>
+<li><a href="#_scan_rate">5.5. Scan rate</a></li>
+<li><a href="#_readwrite_disabled">5.6. Read/Write Disabled</a></li>
+<li><a href="#_hide_name_columns">5.7. Hide name columns</a></li>
+<li><a href="#_address_in_cell">5.8. Address in cell</a></li>
+<li><a href="#_plc_addresses_base_1">5.9. PLC Addresses (Base 1)</a></li>
+<li><a href="#_enrondaniel_mode">5.10. Enron/Daniel Mode</a></li>
+<li><a href="#_rows">5.11. Rows</a></li>
+</ul>
+</li>
+<li><a href="#_real_time_charting_2">6. Real time Charting</a>
+<ul class="sectlevel2">
+<li><a href="#_settings">6.1. Settings</a></li>
+<li><a href="#_zoom_function">6.2. Zoom function</a></li>
+<li><a href="#_pan_function">6.3. Pan function</a></li>
+<li><a href="#_link_data_to_the_chart_series">6.4. Link data to the chart series</a></li>
+<li><a href="#_copy_series">6.5. Copy series</a></li>
+</ul>
+</li>
+<li><a href="#_display_formats_2">7. Display formats</a>
+<ul class="sectlevel2">
+<li><a href="#_native_modbus_registers">7.1. Native Modbus registers</a></li>
+<li><a href="#_32_bit_signed_integer">7.2. 32 bit signed integer</a></li>
+<li><a href="#_32_bit_unsigned_integer">7.3. 32 bit unsigned integer</a></li>
+<li><a href="#_64_bit_signed_integer">7.4. 64 bit signed integer</a></li>
+<li><a href="#_64_bit_unsigned_integer">7.5. 64 bit unsigned integer</a></li>
+<li><a href="#_32_bit_floating">7.6. 32 bit floating</a></li>
+<li><a href="#_64_bit_double">7.7. 64 bit double</a></li>
+</ul>
+</li>
+<li><a href="#_saveopen_workspace">8. Save/Open Workspace</a></li>
+<li><a href="#_test_center">9. Test center</a>
+<ul class="sectlevel2">
+<li><a href="#_ascii_example">9.1. ASCII Example</a></li>
+<li><a href="#_tcpip_example">9.2. TCP/IP Example</a></li>
+<li><a href="#_test_center_string_file">9.3. Test center string file</a></li>
+<li><a href="#_copy">9.4. Copy</a></li>
+</ul>
+</li>
+<li><a href="#_modbus_data_logging">10. Modbus Data logging</a>
+<ul class="sectlevel2">
+<li><a href="#_text_file">10.1. Text file</a></li>
+<li><a href="#_microsoft_excel">10.2. Microsoft Excel</a></li>
+</ul>
+</li>
+<li><a href="#_communication_traffic">11. Communication traffic</a></li>
+<li><a href="#_oleautomation">12. OLE/Automation</a>
+<ul class="sectlevel2">
+<li><a href="#_excel_example">12.1. Excel example</a></li>
+<li><a href="#_connection_functionsproperties">12.2. Connection Functions/Properties</a></li>
+<li><a href="#_read_functions_2">12.3. Read Functions</a></li>
+<li><a href="#_automation_data_properties">12.4. Automation data properties</a></li>
+<li><a href="#_automation_write_functions">12.5. Automation Write Functions</a></li>
+</ul>
+</li>
+<li><a href="#_exception_and_error_messages">13. Exception and error messages</a>
+<ul class="sectlevel2">
+<li><a href="#_modbus_exception_codes">13.1. Modbus Exception Codes</a></li>
+<li><a href="#_modbus_poll_error_messages">13.2. Modbus Poll error messages</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Witte Software&#174; <a href="https://www.modbustools.com" class="bare">https://www.modbustools.com</a></p>
+</div>
+<div class="paragraph">
+<p>2020-05-04</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modbus_poll">1. Modbus Poll</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Modbus Poll is an easy to use Modbus master simulator developed for many purposes. Among others:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Designers of Modbus slave devices for quick and easy testing of protocol interface</p>
+</li>
+<li>
+<p>Automation engineers that need to test Modbus devices or networks on site</p>
+</li>
+<li>
+<p>Service engineers that want to read out and/or change specific service data from a device</p>
+</li>
+<li>
+<p>Change Modbus registers in a slave device</p>
+</li>
+<li>
+<p>Log data from Modbus devices</p>
+</li>
+<li>
+<p>Troubleshooting and compliance testing</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_system_requirements_for_modbus_poll">1.1. System requirements for Modbus Poll</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Hardware requirements</dt>
+<dd>
+<p>Processor; 1 GHz or faster recommended<br>
+1 GB RAM<br>
+5 MB of available hard drive space<br>
+1024 x 768 display resolution</p>
+</dd>
+<dt class="hdlist1">OS requirements</dt>
+<dd>
+<p>All Windows versions from Windows 7 to Windows 10 are supported.<br>
+Modbus Poll version 7 runs on Windows XP.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_end_user_license_agreement">1.2. End User License Agreement</h3>
+<div class="paragraph">
+<p>You should carefully read the following terms and conditions before using Modbus Poll.
+Unless you have a different license agreement signed by Witte Software, your use of this software
+indicates your acceptance of this license agreement and warranty.
+If you do not accept these terms you must cease using this software immediately.</p>
+</div>
+<div class="paragraph">
+<p><strong>Copyright.</strong><br>
+Modbus Poll ("The Software") is copyright 2002-2020 by Witte Software, all rights reserved.</p>
+</div>
+<div class="paragraph">
+<p><strong>Evaluation and Registration.</strong><br>
+This is not free software. You are hereby licensed to use the Software for evaluation purposes without
+charge for a period of 30 days.</p>
+</div>
+<div class="paragraph">
+<p>If you use the Software after the 30 day evaluation period a registration fee is required.</p>
+</div>
+<div class="paragraph">
+<p>Unregistered use of the Software after the 30-day evaluation period is in violation of U.S. and
+international copyright laws.</p>
+</div>
+<div class="paragraph">
+<p>One registered copy of the Software may either be used by a single person who uses the software
+personally on one or more computers, or installed on a single computer used by multiple people, but not both.</p>
+</div>
+<div class="paragraph">
+<p>For information on order and pricing, please visit <a href="https://www.modbustools.com/order.html" class="bare">https://www.modbustools.com/order.html</a></p>
+</div>
+<div class="paragraph">
+<p>Modbus Poll licenses are perpetual. Once you buy a license to a specific major version, and as long
+as you abide by the license agreement, you can use that version forever with no additional cost.</p>
+</div>
+<div class="paragraph">
+<p><strong>Distribution.</strong><br>
+Provided that you do not include your License Key you are hereby licensed to make copies of the Software;
+give exact copies of the original to anyone; and distribute the Software in its unmodified form via
+electronic means. You are specifically prohibited from charging for any such copies.</p>
+</div>
+<div class="paragraph">
+<p><strong>LIMITED WARRANTY.</strong><br>
+THE SOFTWARE IS PROVIDED AS IS AND WITTE SOFTWARE DISCLAIMS ALL WARRANTIES
+RELATING TO THIS SOFTWARE, WHETHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</p>
+</div>
+<div class="paragraph">
+<p><strong>LIMITATION ON DAMAGES.</strong><br>
+NEITHER WITTE SOFTWARE NOR ANYONE INVOLVED IN THE CREATION, PRODUCTION, OR DELIVERY OF THIS SOFTWARE SHALL
+BE LIABLE FOR ANY INDIRECT, CONSEQUENTIAL, OR INCIDENTAL DAMAGES ARISING OUT OF THE USE OR INABILITY
+TO USE SUCH SOFTWARE EVEN IF WITTE SOFTWARE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR
+CLAIMS. IN NO EVENT SHALL WITTE SOFTWARE&#8217;S LIABILITY FOR ANY DAMAGES EXCEED THE PRICE PAID FOR THE
+LICENSE TO USE THE SOFTWARE, REGARDLESS OF THE FORM OF CLAIM. THE PERSON USING THE SOFTWARE BEARS
+ALL RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modbus_poll_features">2. Modbus Poll Features</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_connections">2.1. Connections</h3>
+<div class="paragraph">
+<p>Modbus Poll read/write data from devices using:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Modbus RTU or ASCII on RS232 or RS485 networks. (USB/RS232/485 Converter)</p>
+</li>
+<li>
+<p>Modbus TCP/IP</p>
+</li>
+<li>
+<p>Modbus Over TCP/IP. (Modbus RTU/ASCII encapsulated in a TCP packet)</p>
+</li>
+<li>
+<p>Modbus UDP/IP</p>
+</li>
+<li>
+<p>Modbus over UDP/IP. (Modbus RTU/ASCII encapsulated in a UDP packet)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supported_modbus_functions">2.2. Supported Modbus Functions</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>01: Read coils</p>
+</li>
+<li>
+<p>02: Read discrete inputs</p>
+</li>
+<li>
+<p>03: Read holding registers</p>
+</li>
+<li>
+<p>04: Read input registers</p>
+</li>
+<li>
+<p>05: Write single coil</p>
+</li>
+<li>
+<p>06: Write single register</p>
+</li>
+<li>
+<p>15: Write multiple coils</p>
+</li>
+<li>
+<p>16: Write multiple registers</p>
+</li>
+<li>
+<p>17: Report slave ID</p>
+</li>
+<li>
+<p>22: Mask write register</p>
+</li>
+<li>
+<p>23: Read/Write registers</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_logging">2.3. Data logging</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Log data to a text file</p>
+</li>
+<li>
+<p>Log data direct into Excel</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_display_formats">2.4. Display formats</h3>
+<div class="paragraph">
+<p>Each cell can be individual formatted.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Signed 16 bit register</p>
+</li>
+<li>
+<p>Unsigned 16 bit register</p>
+</li>
+<li>
+<p>Hex</p>
+</li>
+<li>
+<p>Binary</p>
+</li>
+<li>
+<p>32 bit signed integer with any word/byte order</p>
+</li>
+<li>
+<p>32 bit unsigned integer with any word/byte order</p>
+</li>
+<li>
+<p>64 bit signed integer with any word/byte order</p>
+</li>
+<li>
+<p>64 bit unsigned integer with any word/byte order</p>
+</li>
+<li>
+<p>32 bit float with any word/byte order</p>
+</li>
+<li>
+<p>64 bit double float with any word/byte order</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_miscellaneous_features">2.5. Miscellaneous features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>OLE/Automation for interfacing with Excel VB etc.</p>
+</li>
+<li>
+<p>Monitoring of data traffic</p>
+</li>
+<li>
+<p>Print and print preview</p>
+</li>
+<li>
+<p>Font selection</p>
+</li>
+<li>
+<p>Conditional colors</p>
+</li>
+<li>
+<p>Scaling</p>
+</li>
+<li>
+<p>Real time charting</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview">3. Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Modbus Poll uses a multiple document interface. That means several windows can be opened.
+Each one with different data contents from different slave devices at the same time.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll.png" alt="Modbus Poll Master simulator"></span></p>
+</div>
+<div class="paragraph">
+<p>This picture shows two open windows. One reading 10 Holding registers from slave id 1 and
+another reading 10 Holding registers from slave id 2.</p>
+</div>
+<div class="sect2">
+<h3 id="_help_from_anywhere">3.1. Help from anywhere</h3>
+<div class="paragraph">
+<p><strong>Press F1</strong> and get context sensitive help on a topic associated with the current selected item.</p>
+</div>
+<div class="paragraph">
+<p><strong>SHIFT + F1</strong> invokes a special "help mode" in which the courser turns into a help courser (arrow + question mark).
+The user can then select a visible object in the user interface, such as a menu item, toolbar button, or window.
+This opens help on a topic that describes the selected item.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_name_cells">3.2. Name cells</h3>
+<div class="paragraph">
+<p>Here you can type any text for designation of the value cells. You can also copy/paste text from Excel cells.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_value_cells">3.3. Value cells</h3>
+<div class="paragraph">
+<p>Show the data values of the Modbus registers. If you double click a value cell a dialog box lets you
+write a new value to the slave device. Typing a number in a value cell shows the dialog as well.
+It is possible to select the used Modbus function used to write the value.</p>
+</div>
+<div class="paragraph">
+<p>The check box "Close dialog on Response ok" is used to automatically close the dialog box when a value is successfully sent.
+This is convenient when a lot of values are to be changed. In that way it is fast to select a new cell and then type a new value again.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-write-single-register.png" alt="Write single register"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_change_font">3.4. Change font</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">To change the font you have 2 options</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Select the cells to be changed and then right click.</p>
+</li>
+<li>
+<p>Select the cells to be changed and then menu &#8594; display &#8594; font.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-color-selection.png" alt="Color selection"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conditional_colors">3.5. Conditional colors</h3>
+<div class="paragraph">
+<p>Conditional colors help you visually show values in specific ranges.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">3 color options</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Default color: This color is used if none of the conditional colors evaluates to true.</p>
+</li>
+<li>
+<p>Rule 1: This color selection is used if the expression evaluates to true.</p>
+</li>
+<li>
+<p>Rule 2: This color selection is used if the expression evaluates to true. Rule 2 has precedence over rule 1.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">7 Comparison operators</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>not used</p>
+</li>
+<li>
+<p>equal to</p>
+</li>
+<li>
+<p>greater than</p>
+</li>
+<li>
+<p>less than</p>
+</li>
+<li>
+<p>greater than or equal to</p>
+</li>
+<li>
+<p>less than or equal to</p>
+</li>
+<li>
+<p>and</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The "and" operator cannot be used when the data type is of float or 32 bit long type.
+The condition value is entered as a hex number if "and" is selected.
+It evaluates to true if any of the bit in both the cell and the condition value is 1.</p>
+</div>
+<div class="sect3">
+<h4 id="_color_example">3.5.1. Color example</h4>
+<div class="paragraph">
+<p>Green color if the cell value is between 398 and 402</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-cell-colors.png" alt="Cell colors"></span></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scaling">3.6. Scaling</h3>
+<div class="paragraph">
+<p>Scaling help you scale raw values to human readable values. Scaling works only for signed and unsigned 16/32 bit integers.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-scaling.png" alt="Scaling"></span></p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">(X1,Y1) and (X2,Y2)</dt>
+<dd>
+<p>A line passing through the two points (X1,Y1) and (X2,Y2)</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>\$Slope = m = (Y2 - Y1) / (X2 - X1)\$</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Line equation</dt>
+<dd>
+<p>\$Y = m * (X - X1) + Y1\$</p>
+</dd>
+<dt class="hdlist1">Precision</dt>
+<dd>
+<p>Number of digits after the decimal point.</p>
+</dd>
+<dt class="hdlist1">Enable</dt>
+<dd>
+<p>Must be enabled to scale the value from the Modbus server/slave. Scaling is automatically disabled if other
+than a 16/32 bit integer display format is selected.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_real_time_charting">3.7. Real time charting</h3>
+<div class="paragraph">
+<p>The chart can plot 12 series in real time with up to 100000 points in each series.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_open_a_new_window">3.8. Open a new window</h3>
+<div class="paragraph">
+<p>To open another window you have 3 options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Press CTRL+N</p>
+</li>
+<li>
+<p>Select new in the file menu</p>
+</li>
+<li>
+<p>Press <span class="image"><img src="images/mbpoll-new-window.png" alt="New window"></span> on the tool bar</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_connection_dialog">4. Connection dialog</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To open the connection dialog you have 2 options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Press F3</p>
+</li>
+<li>
+<p>Select connect from the connection menu</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-connection-setup.png" alt="Connection setup"></span></p>
+</div>
+<div class="sect2">
+<h3 id="_connection">4.1. Connection</h3>
+<div class="paragraph">
+<p>There are 5 different connection types:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Serial:</strong><br>
+Modbus over serial line. RS232 or RS485. A USB serial converter can be used.</p>
+</li>
+<li>
+<p><strong>Modbus TCP/IP:</strong><br>
+Select TCP/IP if you want to communicate with a MODBUS TCP/IP network. In this case, slave ID is the
+same as the Unit ID used in MODBUS TCP/IP.<br>
+The port number is default 502.<br>
+If the connection fails then try if you can ping your device at the command prompt. If the ping command fails then Modbus Poll fails too.</p>
+</li>
+<li>
+<p><strong>Modbus UDP/IP:</strong><br>
+Select UDP/IP if you want to communicate with a MODBUS UDP/IP network. This is the same as Modbus
+TCP/IP but the connection less UDP protocol is used instead.</p>
+</li>
+<li>
+<p><strong>Modbus RTU/ASCII over TCP/IP:</strong><br>
+This is a RTU or ASCII message send over a TCP/IP network instead of serial lines.</p>
+</li>
+<li>
+<p><strong>Modbus RTU/ASCII over UDP/IP:</strong><br>
+This is a RTU or ASCII message send over a UDP/IP network instead of serial lines.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Connection type 3-5 is not standard Modbus as specified by
+<a href="http://www.modbus.org">www.modbus.org</a> but they are added for convenience.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Depending on your selection some other settings will be grayed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_serial_settings">4.2. Serial Settings</h3>
+<div class="paragraph">
+<p>Use these parameters to set serial port settings. They are only available if connection type is "<strong>Serial Port</strong>".</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mode">4.3. Mode</h3>
+<div class="paragraph">
+<p>Use this option to select <strong>RTU</strong> or <strong>ASCII</strong> mode. Default RTU.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_response_timeout">4.4. Response timeout</h3>
+<div class="paragraph">
+<p>Response timeout specifies the length of time that Modbus Poll should wait for a response from a slave device before giving up. Default is 1000ms.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_min_delay_between_polls">4.5. Min delay between polls</h3>
+<div class="paragraph">
+<p>This setting ensures a minimum delay until next request is transmitted no matter of the scan rate.</p>
+</div>
+<div class="paragraph">
+<p>The resolution of this setting is approximately 15ms. It&#8217;s possible on some computers to obtain better resolution but not all.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If you set this value lower than 20ms the 3.5 char time gap between response and a new request can’t be guaranteed.
+This is because the Windows scheduler switch tasks every 10 - 20ms.</p>
+</li>
+<li>
+<p>If you Polls several slaves in a serial RS485 network you should NOT set the value lower than 20ms. This is to ensure the 3.5 char time gap.</p>
+</li>
+<li>
+<p>In a TCP/IP network less than 20ms is ok.</p>
+</li>
+<li>
+<p>Serial connection to only one slave device less than 20ms is ok.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_remote_server">4.6. Remote Server</h3>
+<div class="paragraph">
+<p>Remote server settings are only available when use an Ethernet connection.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">IP Address</dt>
+<dd>
+<p>Servers IP address. Default is local host 127.0.0.1</p>
+</dd>
+<dt class="hdlist1">Port</dt>
+<dd>
+<p>Server port number. Default 502</p>
+</dd>
+<dt class="hdlist1">Connect Timeout</dt>
+<dd>
+<p>Max time to use to establish a connection. Default 1000</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_advanced_settings">4.7. Advanced settings</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">RTS Toggle</dt>
+<dd>
+<p>RTS Toggle specifies that the RTS line will be high if bytes are available for transmission. After all buffered bytes have been sent, the RTS line will be low.<br>
+You can use this to switch direction if you have a 232/485 converter without automatic direction switch.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The use of RTS controlled RS232/RS485 converters should be avoided if possible.
+It is difficult to determine the exact time when to switch off the transmitter with non real-time
+operating systems like Windows and Linux. If it is switched off too early characters might still sit
+in the FIFO or the transmit register of the UART and these characters will be lost. Hence the slave
+will not recognize the message. On the other hand if it is switched off too late then the slave&#8217;s message
+is corrupted and the master will not recognize the message.
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">DSR</dt>
+<dd>
+<p>DSR specify whether the DSR (data-set-ready) signal is monitored for output flow control. If this member is TRUE and DSR is turned off, output is suspended until DSR is sent again.</p>
+</dd>
+<dt class="hdlist1">CTS</dt>
+<dd>
+<p>CTS specify whether the CTS (clear-to-send) signal is monitored for output flow control. If this checkbox is enabled and CTS is turned off, output is suspended until CTS is sent again.</p>
+</dd>
+<dt class="hdlist1">DTR</dt>
+<dd>
+<p>DTR specifies whether the DTR will be enabled or disabled whenever the port is opened.</p>
+</dd>
+<dt class="hdlist1">Remove Echo</dt>
+<dd>
+<p>If your device or RS232/RS485 converter echoes the chars just sent.</p>
+</dd>
+</dl>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_readwrite_definition">5. Read/Write definition</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use this command to define the data to be monitored for the active window.</p>
+</div>
+<div class="paragraph">
+<p>To open the Read/Write Definition dialog you have 3 options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Press F8</p>
+</li>
+<li>
+<p>Select "Read/Write Definition" from the Setup menu</p>
+</li>
+<li>
+<p>Press <span class="image"><img src="images/mbpoll-definition-button.png" alt="Definition button"></span> on the tool bar</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-definition.png" alt="Read/write definition"></span></p>
+</div>
+<div class="sect2">
+<h3 id="_slave_id">5.1. Slave ID</h3>
+<div class="paragraph">
+<p>Range 1 to 255. (MODBUS protocol specifications say 247). The value 0 is also accepted to communicate directly to a MODBUS/TCP or MODBUS/UDP device.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_function_code">5.2. Function code</h3>
+<div class="paragraph">
+<p>You can select 1 of 8 function codes.</p>
+</div>
+<div class="sect3">
+<h4 id="_read_functions">5.2.1. Read functions</h4>
+<div class="paragraph">
+<p>The data returned by the read functions are displayed on the grid window.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>01: Read coils (0x)</p>
+</li>
+<li>
+<p>02: Read discrete inputs (1x)</p>
+</li>
+<li>
+<p>03: Read holding registers (4x)</p>
+</li>
+<li>
+<p>04: Read input registers (3x)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_write_functions">5.2.2. Write functions</h4>
+<div class="paragraph">
+<p>The write functions write the data displayed on the grid window.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>05: Write single coil (Writes to Coil status)</p>
+</li>
+<li>
+<p>06: Write single register (Writes to Holding registers)</p>
+</li>
+<li>
+<p>15: Write multiple coils (Writes to Coils)</p>
+</li>
+<li>
+<p>16: Write multiple registers (Writes to Holding registers)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_address">5.3. Address</h3>
+<div class="paragraph">
+<p>Addresses in the Modbus protocol are confusing! Some protocol specifications use the protocol/message
+address and others use device addressing.</p>
+</div>
+<div class="sect3">
+<h4 id="_protocolmessage_address">5.3.1. Protocol/message address</h4>
+<div class="paragraph">
+<p>Some protocol specifications use the protocol/message address counting from 0 to 65535 along with a
+function code. This is also what the new Modbus specifications use. This is the address inside the
+message sent on the wire.</p>
+</div>
+<div class="paragraph">
+<p>Modbus Poll use protocol/message address counting from 0 to 65535.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_device_address">5.3.2. Device address</h4>
+<div class="paragraph">
+<p>Some protocol specifications use device address/registers. Registers counts from 1.
+The first digit describes the function to be used. That means the device address 40101
+is identified by address 100. The "4" means Holding registers and 4x registers counts from 1.
+And even more confusing: 4x means function code 03 and 3x means function code 04!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_5_digits_vs_6_digits_addressing">5.3.3. 5 digits vs. 6 digits addressing</h4>
+<div class="paragraph">
+<p>The address format 4x counts from 40001 to 49999. The next address is <strong>not</strong> 50000.
+In old days 9999 addresses was enough. There are cases where 9999 is not enough.
+Then a zero is added. 40101 become 400101 and so on. This is called 6 digits addressing or extended addressing.</p>
+</div>
+<div class="paragraph">
+<p>This is not a problem with Modbus Poll. 410001 become 10000. The "4" is thrown away and the rest 10001
+is decremented by 1 as we count from 0 instead of 1.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_address_examples">5.4. Address examples</h3>
+<div class="paragraph">
+<p>These examples show how to setup Modbus Poll if a specification use device addresses.</p>
+</div>
+<div class="sect3">
+<h4 id="_read_holding_registers">5.4.1. Read Holding Registers</h4>
+<div class="paragraph">
+<p>You want to read 20 registers from device address 40011 from slave ID 2 every 1000ms. From the "4" we know this is function 03 "Read Holding Registers".</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Slave ID = 2</p>
+</li>
+<li>
+<p>Function = "03 Read Holding Registers (4x)"</p>
+</li>
+<li>
+<p>Address = 10 (11 minus 1)</p>
+</li>
+<li>
+<p>Quantity = 20</p>
+</li>
+<li>
+<p>Scan rate = 1000</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_read_discrete_inputs">5.4.2. Read Discrete Inputs</h4>
+<div class="paragraph">
+<p>You want to read 1000 coils from address 110201 from slave ID 5 every 500ms. From the "1" we know this is function 02 "Read Discrete Inputs"</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Slave ID = 5</p>
+</li>
+<li>
+<p>Function = "02 Read Discrete Inputs (1x)"</p>
+</li>
+<li>
+<p>Address = 10200 (10201 - 1)</p>
+</li>
+<li>
+<p>Quantity = 1000</p>
+</li>
+<li>
+<p>Scan rate = 500</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scan_rate">5.5. Scan rate</h3>
+<div class="paragraph">
+<p>The scan rate can be set from 0 to 3600000ms. Note that setting the scan rate lower than the transaction
+time does not make sense. If a serial connection at 9600baud is used and 125 registers are requested
+the transaction time is roughly 8 + 2 + 250 + 2 = 262ms + the gap (&gt;3.5 char time) between the request
+and the response. In this case setting the scan rate at e.g. 100ms do not make sense as the transaction time
+is at least 262ms + delay in the slave (gap) + min time between polls. (Set in the connection dialog F3).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_readwrite_disabled">5.6. Read/Write Disabled</h3>
+<div class="paragraph">
+<p>The "Read/Write Disabled" check box can be used to temporary enable or disable the communication for
+this window. A text (Disabled) is then shown along with the Tx and Error counters.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-disabled.png" alt="Read/Write disabled"></span><br>
+If "Read/Write" is disabled you can make single requests with the "Read/Write once" button or press F6.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-once-button.png" alt="Read/Write once button"></span><br>
+"Read/Write once" button</p>
+</div>
+<div class="sect3">
+<h4 id="_disable_on_error">5.6.1. Disable on error</h4>
+<div class="paragraph">
+<p>Disable Read/Write in case of error.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hide_name_columns">5.7. Hide name columns</h3>
+<div class="paragraph">
+<p>Hide all name columns. This is convenient to make more space if they are not used.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_address_in_cell">5.8. Address in cell</h3>
+<div class="paragraph">
+<p>If enabled, the address is also shown in the value cell like: 2000 = 00000</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-address-in-cell.png" alt="Address in cell"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_plc_addresses_base_1">5.9. PLC Addresses (Base 1)</h3>
+<div class="paragraph">
+<p>This option will show the addresses as device address.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-plc-address.png" alt="PLC address"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enrondaniel_mode">5.10. Enron/Daniel Mode</h3>
+<div class="paragraph">
+<p>Enron or Enron/Daniels Modbus is Standard Modbus with a few "Vendor Extensions". The exact impact of these extensions is context dependent, but most common Modbus commands works as expected. There are some custom vendor-defined functions available - but few users expect or use them. The largest impact has to do with how 32-bit data values are read/written.</p>
+</div>
+<div class="paragraph">
+<p>Enron-Modbus defines two special 4x holding register ranges:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>4x5001 to 4x5999 are assumed 32-bit long integers (4-bytes per register).</p>
+</li>
+<li>
+<p>4x7001 to 4x7999 are assumed 32-bit floating points (4-bytes per register).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Dealing with 32-bit values in Modbus is NOT unique to Enron-MB. However, Enron-MB takes the debatable step of returning 4-bytes per register instead of the 2-bytes implied by the term "holding register" in the Modbus specification. This means a poll of registers 4x5001 and 4x5002 in Enron-Modbus returns 8-bytes or two 32-bit integers, whereas Standard Modbus would only return 4-bytes or one 32-bit integer treated as two 16-bit integers. In addition, polling register 4x5010 in Enron-MB returns the tenth 32-bit long integer, whereas Standard Modbus would consider this 1/2 of the fifth 32-bit long integer in this range.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rows">5.11. Rows</h3>
+<div class="paragraph">
+<p>Specify the number of rows in the grid you prefer.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_real_time_charting_2">6. Real time Charting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use this command to plot up to 12 data series in a chart in real time.<br>
+The real time chart is high speed and capable to draw a new line as fast as new data is received.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All chart settings are stored with workspace. <a href="#_saveopen_workspace">Save/Open Workspace</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To open the Real time charting dialog you have 2 options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Press Alt + R</p>
+</li>
+<li>
+<p>Select "Real time Charting" from the Display menu</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-chart.png" alt="Real time charting"></span></p>
+</div>
+<div class="paragraph">
+<p>The X-Axis display the number of seconds since the chart was started.</p>
+</div>
+<div class="paragraph">
+<p>When the points reach the end of the chart there are 3 options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Stop at end:</strong> The charting stops.</p>
+</li>
+<li>
+<p><strong>Restart at end:</strong> The charting starts all over again.</p>
+</li>
+<li>
+<p><strong>Continue:</strong> It continue until it reach the max number of points or stop is pressed.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_settings">6.1. Settings</h3>
+<div class="paragraph">
+<p>By default all 12 series are linked to the left Y-Axis. Check
+the "Right Y-Axis" check box if you want to link a series to the right Y-Axis.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Specify</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Colors</p>
+</li>
+<li>
+<p>Right Y-Axis</p>
+</li>
+<li>
+<p>Title</p>
+</li>
+<li>
+<p>Offset</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Show</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>File name</p>
+</li>
+<li>
+<p>Address</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The offset is useful to align data points on the same Y-Axis. For example, data points that is either 0 or 1
+can be offset so they are not drawn on top of each other.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-series-settings.png" alt="Series settings"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_zoom_function">6.2. Zoom function</h3>
+<div class="paragraph">
+<p>Zooming in on the chart can be useful if you want to see more details.
+The zoom is controlled with left mouse button. To zoom a specific part of the chart, simply left-click
+on the chart (this will be the upper-left corner of the zoomed rectangle) and drag to the bottom-right.
+A rectangle will appear. As soon as you release the mouse button, the axes will automatically
+adjust themselves to the region you have selected.</p>
+</div>
+<div class="paragraph">
+<p>If you left-click on the chart (like for starting a zoom) but if you move to the top-left corner instead,
+all the modifications done with the zoom and pan features will be canceled
+(the chart will be in the state it was before the manipulations with the pan and zoom).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pan_function">6.3. Pan function</h3>
+<div class="paragraph">
+<p>To pan the control, right-click somewhere on the control and move the mouse. The point under the mouse
+will follow the movement of the mouse.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_link_data_to_the_chart_series">6.4. Link data to the chart series</h3>
+<div class="paragraph">
+<p>The chart don&#8217;t know which data to use unless you link a Modbus data cell to one of the 12 series. To
+do so select a value cell and from Menu&#8594;Display select "Link to Chart".</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-chart-link.png" alt="Link to chart"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_copy_series">6.5. Copy series</h3>
+<div class="paragraph">
+<p>Save series data to disk or copy to clipboard. Paste the data direct in Excel for further processing.<br>
+The file is given a .csv extension despite the use of a non-comma field separator.</p>
+</div>
+<div class="paragraph">
+<p><strong>Delimiters:</strong> Select the character that separates values in your text file. Use tab for Excel.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Further more some additional information is given.</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>Number of points</p>
+</li>
+<li>
+<p>Max point value</p>
+</li>
+<li>
+<p>Min point value</p>
+</li>
+<li>
+<p>Average point value</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-save-copy-series.png" alt="save/copy series"></span></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_display_formats_2">7. Display formats</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mark the cells to be formatted. Select one of the 28 display formats from the display menu.</p>
+</div>
+<div class="sect2">
+<h3 id="_native_modbus_registers">7.1. Native Modbus registers</h3>
+<div class="paragraph">
+<p>The 16 bit Modbus registers can be displayed in 4 different modes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Signed</p>
+</li>
+<li>
+<p>Unsigned</p>
+</li>
+<li>
+<p>Hex</p>
+</li>
+<li>
+<p>Binary</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_32_bit_signed_integer">7.2. 32 bit signed integer</h3>
+<div class="paragraph">
+<p>This combines 2 16 bit Modbus registers. It can be displayed in 4 different word/byte orders.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Signed integer Big-endian</p>
+</li>
+<li>
+<p>Signed integer Little-endian</p>
+</li>
+<li>
+<p>Signed integer Big-endian byte swap</p>
+</li>
+<li>
+<p>Signed integer Little-endian byte swap</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example</dt>
+<dd>
+<p>Byte Order: <strong>AB CD (Big-endian)</strong><br>
+The decimal number 123456789 or in hexadecimal <strong>07 5B CD 15</strong><br>
+Order as they come over the wire in a Modbus message: <strong>07 5B CD 15</strong></p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_32_bit_unsigned_integer">7.3. 32 bit unsigned integer</h3>
+<div class="paragraph">
+<p>This combines 2 16 bit Modbus registers. It can be displayed in 4 different word/byte orders.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Unsigned integer Big-endian</p>
+</li>
+<li>
+<p>Unsigned integer Little-endian</p>
+</li>
+<li>
+<p>Unsigned integer Big-endian byte swap</p>
+</li>
+<li>
+<p>Unsigned integer Little-endian byte swap</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example</dt>
+<dd>
+<p>Byte Order: <strong>AB CD (Big-endian)</strong><br>
+The decimal number 123456789 or in hexadecimal <strong>07 5B CD 15</strong><br>
+Order as they come over the wire in a Modbus message: <strong>07 5B CD 15</strong></p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_64_bit_signed_integer">7.4. 64 bit signed integer</h3>
+<div class="paragraph">
+<p>This combines 4 16 bit Modbus registers. It can be displayed in 4 different word/byte orders.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Signed integer Big-endian</p>
+</li>
+<li>
+<p>Signed integer Little-endian</p>
+</li>
+<li>
+<p>Signed integer Big-endian byte swap</p>
+</li>
+<li>
+<p>Signed integer Little-endian byte swap</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example</dt>
+<dd>
+<p>Byte Order: <strong>AB CD EF GH (Big-endian)</strong><br>
+The decimal number -1,234,567,890,123,456,789 or in hexadecimal <strong>EE DD EF 0B 82 16 7E EB</strong><br>
+Order as they come over the wire in a Modbus message: <strong>EE DD EF 0B 82 16 7E EB</strong></p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_64_bit_unsigned_integer">7.5. 64 bit unsigned integer</h3>
+<div class="paragraph">
+<p>This combines 4 16 bit Modbus registers. It can be displayed in 4 different word/byte orders.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Unsigned integer Big-endian</p>
+</li>
+<li>
+<p>Unsigned integer Little-endian</p>
+</li>
+<li>
+<p>Unsigned integer Big-endian byte swap</p>
+</li>
+<li>
+<p>Unsigned integer Little-endian byte swap</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example</dt>
+<dd>
+<p>Byte Order: <strong>AB CD EF GH (Big-endian)</strong><br>
+The decimal number 1,234,567,890,123,456,789 or in hexadecimal <strong>11 22 10 F4 7D E9 81 15</strong><br>
+Order as they come over the wire in a Modbus message: <strong>11 22 10 F4 7D E9 81 15</strong></p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_32_bit_floating">7.6. 32 bit floating</h3>
+<div class="paragraph">
+<p>This combines 2 16 bit Modbus registers. It can be displayed in 4 different word/byte orders.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Float Big-endian</p>
+</li>
+<li>
+<p>Float Little-endian</p>
+</li>
+<li>
+<p>Float Big-endian byte swap</p>
+</li>
+<li>
+<p>Float Little-endian byte swap</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example</dt>
+<dd>
+<p>Byte Order: <strong>AB CD (Big-endian)</strong><br>
+The floating point number 123456.00 or in hexadecimal <strong>47 F1 20 00</strong><br>
+Order as they come over the wire in a Modbus message: <strong>47 F1 20 00</strong></p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_64_bit_double">7.7. 64 bit double</h3>
+<div class="paragraph">
+<p>This combines 4 16 bit Modbus registers. It can be displayed in 4 different word/byte orders.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Double Big-endian</p>
+</li>
+<li>
+<p>Double Little-endian</p>
+</li>
+<li>
+<p>Double Big-endian byte swap</p>
+</li>
+<li>
+<p>Double Little-endian byte swap</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Example</dt>
+<dd>
+<p>Byte Order: <strong>AB CD EF GH (Big-endian)</strong><br>
+The floating point number 123456789.00 or in hexadecimal <strong>41 9D 6F 34 54 00 00 00</strong><br>
+Order as they come over the wire in a Modbus message: <strong>41 9D 6F 34 54 00 00 00</strong></p>
+</dd>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_saveopen_workspace">8. Save/Open Workspace</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you open many related Modbus windows it is convenient to save a snapshot of the current layout of all open and arranged Modbus Windows in one workspace.</p>
+</div>
+<div class="paragraph">
+<p>A workspace (*mbw) is a file that contains display information and file names of all open windows.
+Not the actual contents. To do this, go to File&#8594; Save Workspace.</p>
+</div>
+<div class="paragraph">
+<p>When you open a workspace file, Modbus Poll opens all Modbus Windows and displays them in the layout that you saved.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_center">9. Test center</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The purpose of this test dialog is to help MODBUS slave device developers to test the device with any
+string of their own composition.<br>
+The list box displays the transmitted data as well as the received data.<br>
+You can have several test strings in the pull down list box. When you have entered a string then press
+the "Add to List" button then the string is added to the list.<br>
+The selected string is sent when the "Send" button is pressed.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Open list</dt>
+<dd>
+<p>Rest test strings from a file.</p>
+</dd>
+<dt class="hdlist1">Save list</dt>
+<dd>
+<p>Store the test strings to a file.</p>
+</dd>
+<dt class="hdlist1">Clear</dt>
+<dd>
+<p>Clear the test list.</p>
+</dd>
+<dt class="hdlist1">Add to list</dt>
+<dd>
+<p>Add the current test string to the list.</p>
+</dd>
+<dt class="hdlist1">Add Check</dt>
+<dd>
+<p>Add a CRC or LRC to the end of the input string.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>When using the test center you may want to disable communication from other windows.
+Check the "Read/Write disable" check box in "Read/Write Definition" dialog. Setup&#8594;Read/Write Definition.</p>
+</div>
+<div class="sect2">
+<h3 id="_ascii_example">9.1. ASCII Example</h3>
+<div class="paragraph">
+<p>String in the combo box:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>3A 30 31 30 33 30 30 30 30 30 30 30 41</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The transmitted string if LRC is added</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>3A 30 31 30 33 30 30 30 30 30 30 30 41 46 32 0D 0A</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A CR LF pair are also added.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tcpip_example">9.2. TCP/IP Example</h3>
+<div class="paragraph">
+<p>Read 10 holding registers.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>00 00 00 00 00 06 01 03 00 00 00 0A</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first 6 bytes are the TCP/IP header.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test_center_string_file">9.3. Test center string file</h3>
+<div class="paragraph">
+<p>With a text editor such as notepad or similar you can prepare strings to be used in the test.<br>
+The first line in the file must be the string "TestCenter". This is how Modbus Poll knows that the file is the correct format. Press "Open list" to open the prepared text file.</p>
+</div>
+<div class="sect3">
+<h4 id="_content_of_a_string_list">9.3.1. Content of a string list</h4>
+<div class="listingblock">
+<div class="content">
+<pre>TestCenter
+3A 30 31 30 33 30 30 30 30 30 30 30 41
+3A 30 32 30 33 30 30 30 30 30 30 30 41
+3A 30 33 30 33 30 30 30 30 30 30 30 41</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_copy">9.4. Copy</h3>
+<div class="paragraph">
+<p>Use the Copy button to copy selected Tx/Rx strings to the clipboard.<br>
+The SHIFT and CTRL keys can be used together with the mouse to select and deselect strings, select groups of strings, and select non-adjacent strings.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Leave this window open while doing other commands.
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modbus_data_logging">10. Modbus Data logging</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can log data to either a text file or direct to Microsoft Excel.</p>
+</div>
+<div class="sect2">
+<h3 id="_text_file">10.1. Text file</h3>
+<div class="paragraph">
+<p>Select Log from the setup menu or use short cut keys: Alt+L</p>
+</div>
+<div class="paragraph">
+<p>Each Modbus Window logs to its individual text file.</p>
+</div>
+<div class="paragraph">
+<p>When you want to stop the data logging then select the logging off command on the setup menu.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-text-log.png" alt="Modbus data log"></span></p>
+</div>
+<div class="sect3">
+<h4 id="_log_rate">10.1.1. Log Rate</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Each read</dt>
+<dd>
+<p>Write a log line for all Modbus requests. Log frequency as scan rate.</p>
+</dd>
+<dt class="hdlist1">Select</dt>
+<dd>
+<p>Specify the log rate in seconds. Independent of scan rate.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the scan rate is e.g. 10000ms it makes no sense to set a 1 sec log rate as data are logged only when new data are ready.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_delimiters">10.1.2. Delimiters</h4>
+<div class="paragraph">
+<p>As delimiter you can use one of following options:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Fixed width</dt>
+<dd>
+<p>Means that the values are organized in columns.</p>
+</dd>
+<dt class="hdlist1">Comma</dt>
+<dd>
+<p>Values separated by a comma.</p>
+</dd>
+<dt class="hdlist1">Tab</dt>
+<dd>
+<p>Values separated by a tab.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_log_if_data_changed_only">10.1.3. Log if data changed only</h4>
+<div class="paragraph">
+<p>Specify that a new log line is written only if any data is changed since last log.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_log_errors">10.1.4. Log Errors</h4>
+<div class="paragraph">
+<p>Specify that errors such a timeout etc. are logged.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_log_date">10.1.5. Log Date</h4>
+<div class="paragraph">
+<p>Specify that the current date is added to the log time.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_log_ms">10.1.6. Log ms</h4>
+<div class="paragraph">
+<p>Specify that milliseconds are added to the log time.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_log_address">10.1.7. Log address</h4>
+<div class="paragraph">
+<p>Specify that the Modbus Address is added to the log.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_start_log_when_ok_is_pressed">10.1.8. Start Log when ok is pressed</h4>
+<div class="paragraph">
+<p>Specify that logging is started when ok button is pressed. Otherwise the log setup is just stored when *mbp file is saved.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_start_log_when_mbp_is_opened">10.1.9. Start Log when *mbp is opened</h4>
+<div class="paragraph">
+<p>Specify that logging is automatically started when a *.mbp file is opened.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_flush_to_file_immediately">10.1.10. Flush to file immediately</h4>
+<div class="paragraph">
+<p>This ensures that log lines are not cashed in the file system but physical written immediately.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_append">10.1.11. Append</h4>
+<div class="paragraph">
+<p>Specify that logs are appended to selected file. Otherwise a new file is created.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_new_log_file_at_midnight">10.1.12. New log file at midnight</h4>
+<div class="paragraph">
+<p>Close the current log file and start a new file at midnight. A time stamp is added to your filename.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example of a text file with fixed width:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>22:28:13 &lt;40001&gt; 17395 0 0 0 0 0 0 0 0
+22:28:14 &lt;40001&gt; 17396 1 0 0 0 0 0 0 0
+22:28:15 &lt;40001&gt; 17394 1 0 0 2 55 0 0 0
+22:28:16 &lt;40001&gt; 13350 1 0 0 4 0 0 0 0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can import the data in an Excel spreadsheet.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_microsoft_excel">10.2. Microsoft Excel</h3>
+<div class="paragraph">
+<p>This feature requires that Microsoft Excel is installed. Excel 2003 log is limited to 65535 logs as this is the max number of rows in an Excel sheet. Excel 2007 or newer is limited to 1,048,576 rows. Each Modbus Window logs to its individual Excel sheet.</p>
+</div>
+<div class="paragraph">
+<p>Select Excel Log from the setup menu or use short cut keys: Alt+X</p>
+</div>
+<div class="paragraph">
+<p><strong>Do not touch the Excel sheet while logging as this will interrupt the logging.</strong></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-excel-log.png" alt="Modbus Excel logging"></span></p>
+</div>
+<div class="sect3">
+<h4 id="_log_rate_2">10.2.1. Log Rate</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Each read:</strong> Write a log line for all Modbus requests. Log frequency as scan rate.</p>
+</li>
+<li>
+<p><strong>Select:</strong> Specify the log rate in seconds. Log is independent of scan rate.<br>
+<strong>Remark:</strong> If the scan rate is e.g. 10000ms it makes no sense to set a 1 sec log rate as data are logged only when new data are ready.</p>
+</li>
+<li>
+<p><strong>Stop after:</strong> Specify the number of log lines. Note that Excel 2003 is limited to 65,536 rows and Excel 2007 1,048,576 rows.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_header_information">10.2.2. Header information</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Insert header:</strong> Information is inserted in the top most 3 lines in the Excel sheet.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name cells in top row:</strong> Insert names in row 3.</p>
+</li>
+<li>
+<p><strong>Poll definition:</strong> Insert ID, Function etc. in row 2.</p>
+</li>
+<li>
+<p><strong>Name:</strong> Insert a log name in row 1.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-excel-log-example.png" alt="Modbus Excel logging example"></span></p>
+</div>
+<div class="paragraph">
+<p>Excel log with header information.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_communication_traffic">11. Communication traffic</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Select the menu Display&#8594;Communication to show the traffic on the serial line or Ethernet cable. Use the stop button to temporary stop the update for inspection.</p>
+</div>
+<div class="paragraph">
+<p>Use the copy button to copy selected line to the clipboard.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This window show only data sent and received by Modbus Poll. You can’t use it as a data sniffer.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Leave this window open while doing other commands.
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_oleautomation">12. OLE/Automation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Automation (formerly known as OLE Automation) makes it possible for one application to manipulate objects implemented in another application.</p>
+</div>
+<div class="paragraph">
+<p>An Automation client is an application that can manipulate exposed objects belonging to another application. This is also called an Automation controller.</p>
+</div>
+<div class="paragraph">
+<p>An Automation server is an application that exposes programmable objects to other applications. <strong>Modbus Poll</strong> is an automation server.</p>
+</div>
+<div class="paragraph">
+<p>That means you can use any program that supports VBA (Visual Basic for Applications) such as Visual Basic, Excel etc. to interpret and show the modbus data according to your specific requirements.</p>
+</div>
+<div class="sect2">
+<h3 id="_excel_example">12.1. Excel example</h3>
+<div class="paragraph">
+<p>You should display the Developer tab or run in developer mode when you want to write macros.</p>
+</div>
+<div class="sect3">
+<h4 id="_excel_2007">12.1.1. Excel 2007</h4>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-excel-developer-tab.png" alt="Excel developer tab"></span></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the Microsoft office button and then click Excel options.</p>
+</li>
+<li>
+<p>Click popular and then select the show Developers tab in the ribbon check box.<br>
+Note the ribbon is part of the Microsoft fluent user interface.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_excel_2010">12.1.2. Excel 2010</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the file tab.</p>
+</li>
+<li>
+<p>Click options. Excel Options window will open.</p>
+</li>
+<li>
+<p>On the left pane click Customize Ribbon.</p>
+</li>
+<li>
+<p>On the right pane, under Main Tabs, check the Developer check box.</p>
+</li>
+<li>
+<p>Click OK. The Developer tab should now show in the ribbon (right most tab).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_excel_sample_code">12.1.3. Excel sample code</h4>
+<div class="paragraph">
+<p>This example opens two windows. One reading registers and another reading Coils.<br>
+Modbus Poll is hidden but you can show it by uncomment the "ShowWindow" line. This will show one of the windows.</p>
+</div>
+<div class="paragraph">
+<p>An example is also included with the Modbus Poll installation.<br>
+Start &#8594; All Programs &#8594; Modbus Poll &#8594; Excel Example</p>
+</div>
+<div class="listingblock">
+<div class="title">Excel VBA Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="k">Public</span> <span class="n">doc1</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="k">Public</span> <span class="n">doc2</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="k">Public</span> <span class="n">app</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="k">Dim</span> <span class="nv">res</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="k">Dim</span> <span class="nv">n</span> <span class="ow">As</span> <span class="kt">Integer</span>
+
+<span class="k">Private</span> <span class="k">Sub</span> <span class="nf">StartModbusPoll_Click</span><span class="p">()</span>
+   <span class="k">Set</span> <span class="n">app</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">"Mbpoll.Application"</span><span class="p">)</span>
+   <span class="k">Set</span> <span class="n">doc1</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">"Mbpoll.Document"</span><span class="p">)</span>
+   <span class="k">Set</span> <span class="n">doc2</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">"Mbpoll.Document"</span><span class="p">)</span>
+<span class="c1">' Read 10 Holding Registers every 1000ms</span>
+   <span class="n">res</span> <span class="o">=</span> <span class="n">doc1</span><span class="p">.</span><span class="n">ReadHoldingRegisters</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="c1">' Read 10 Coil Status every 1000ms</span>
+   <span class="n">res</span> <span class="o">=</span> <span class="n">doc2</span><span class="p">.</span><span class="n">ReadCoils</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="c1">' doc1.ShowWindow()</span>
+   <span class="n">app</span><span class="p">.</span><span class="n">Connection</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">' Modbus TCP/IP</span>
+   <span class="n">app</span><span class="p">.</span><span class="n">IPAddress</span> <span class="o">=</span> <span class="s">"127.0.0.1"</span> <span class="c1">' local host</span>
+   <span class="n">app</span><span class="p">.</span><span class="n">ServerPort</span> <span class="o">=</span> <span class="mi">502</span>
+   <span class="n">app</span><span class="p">.</span><span class="n">ConnectTimeout</span> <span class="o">=</span> <span class="mi">1000</span>
+   <span class="n">res</span> <span class="o">=</span> <span class="n">app</span><span class="p">.</span><span class="n">OpenConnection</span><span class="p">()</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Private</span> <span class="k">Sub</span> <span class="nf">Read_Click</span><span class="p">()</span>
+   <span class="n">Cells</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="n">doc1</span><span class="p">.</span><span class="n">ReadResult</span><span class="p">()</span> <span class="c1">'Show results for the requests</span>
+   <span class="n">Cells</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="n">doc2</span><span class="p">.</span><span class="n">ReadResult</span><span class="p">()</span>
+
+   <span class="k">For</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">To</span> <span class="mi">9</span>
+      <span class="n">Cells</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">doc1</span><span class="p">.</span><span class="n">SRegisters</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+   <span class="k">Next</span> <span class="n">n</span>
+
+   <span class="k">For</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">To</span> <span class="mi">9</span>
+      <span class="n">Cells</span><span class="p">(</span><span class="mi">18</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">doc2</span><span class="p">.</span><span class="n">Coils</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+   <span class="k">Next</span> <span class="n">n</span>
+<span class="k">End</span> <span class="k">Sub</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_connection_functionsproperties">12.2. Connection Functions/Properties</h3>
+<div class="paragraph">
+<p>The following properties and functions do the same as you setup in the connection dialog (F3).</p>
+</div>
+<div class="sect3">
+<h4 id="_connection_2">12.2.1. Connection</h4>
+<div class="paragraph">
+<p>Connection selects the desired connection. A serial port or one of the Ethernet connections can be selected.</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>Connection</strong> as Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Valid values</dt>
+<dd>
+<p>0 = Serial port<br>
+1 = Modbus TCP/IP<br>
+2 = Modbus UDP/IP<br>
+3 = Modbus ASCII/RTU over TCP/IP<br>
+4 = Modbus ASCII/RTU over UDP/IP<br></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">Connection</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_baudrate">12.2.2. BaudRate</h4>
+<div class="paragraph">
+<p>Applicable only for Connection = 0</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>BaudRate</strong> as Long</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Valid values</dt>
+<dd>
+<p>300<br>
+600<br>
+1200<br>
+2400<br>
+4800<br>
+9600 (Default)<br>
+14400<br>
+19200<br>
+38400<br>
+56000<br>
+57600<br>
+115200<br>
+128000<br>
+256000<br>
+460800<br>
+921600</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">BaudRate</span> <span class="o">=</span> <span class="mi">9600</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_databits">12.2.3. DataBits</h4>
+<div class="paragraph">
+<p>Applicable only for Connection = 0</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>DataBits</strong> as Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Valid values</dt>
+<dd>
+<p>7<br>
+8 (Default)<br></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">DataBits</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parity">12.2.4. Parity</h4>
+<div class="paragraph">
+<p>Applicable only for Connection = 0</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>Parity</strong> as Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Valid values</dt>
+<dd>
+<p>0 = None<br>
+1 = Odd<br>
+2 = Even (Default)+</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">Parity</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_stopbits">12.2.5. StopBits</h4>
+<div class="paragraph">
+<p>Applicable only for Connection = 0</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>StopBits</strong> as Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Valid values</dt>
+<dd>
+<p>1 (Default)+
+2<br></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">StopBits</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_serialport">12.2.6. SerialPort</h4>
+<div class="paragraph">
+<p>Applicable only for Connection = 0</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>SerialPort</strong> as Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Valid values</dt>
+<dd>
+<p>1…255</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Default value = 1</p>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">SerialPort</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_responsetimeout">12.2.7. ResponseTimeout</h4>
+<div class="paragraph">
+<p>The ResponseTimeout specifies the length of time in ms that Modbus Poll should wait for a response from a slave device before giving up.</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>ResponseTimeout</strong> as Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Valid values</dt>
+<dd>
+<p>50…100000</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Default value = 1000</p>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">ResponseTimeout</span> <span class="o">=</span> <span class="mi">1000</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_serverport">12.2.8. ServerPort</h4>
+<div class="paragraph">
+<p>Applicable only for Connection = 1…4</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>ServerPort</strong> as Long</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Valid values</dt>
+<dd>
+<p>0…65535</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Default value = 502</p>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">ServerPort</span> <span class="o">=</span> <span class="mi">502</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_connecttimeout">12.2.9. ConnectTimeout</h4>
+<div class="paragraph">
+<p>The ConnectTimeout specifies the length of time that Modbus Poll should wait for a TCP/IP connection to succeed.</p>
+</div>
+<div class="paragraph">
+<p>Applicable only for Connection = 1…4</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>ConnectTimeout</strong> as Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Valid values</dt>
+<dd>
+<p>100…30000ms</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Default value = 1000ms</p>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">ConnectTimeout</span> <span class="o">=</span> <span class="mi">1000</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ipversion">12.2.10. IPVersion</h4>
+<div class="paragraph">
+<p>Applicable only for Connection = 1…4</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>IPVersion</strong> as Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Valid values</dt>
+<dd>
+<p>4 = IP Version 4 (Default)<br>
+6 = IP Version 6<br></p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="title">Example</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">IPVersion</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_openconnection">12.2.11. OpenConnection</h4>
+<div class="paragraph">
+<p>Opens the connection selected with the Connection property.</p>
+</div>
+<div class="paragraph">
+<p>Function <strong>OpenConnection</strong>() As Integer</p>
+</div>
+<div class="paragraph">
+<p><strong>Return Value:</strong></p>
+</div>
+<div class="paragraph">
+<p>For error 3-5: Please check if you have the latest serial port driver.</p>
+</div>
+<div class="paragraph">
+<p>0 = SUCCESS<br>
+1 = Serial Port not available<br>
+3 = Serial port. Not possible to get current settings from port driver.<br>
+4 = Serial port. Serial port driver did not accept port settings.<br>
+5 = Serial port. Serial port driver did not accept timeout settings.<br>
+12 = TCP/UDP Connection failed. WSA start up<br>
+13 = TCP/UDP Connection failed. Connect error<br>
+14 = TCP/UDP Connection failed. Timeout<br>
+15 = TCP/UDP Connection failed. IOCTL<br>
+17 = TCP/UDP Connection failed. Socket error<br>
+21 = TCP/UDP Connection failed. Address information</p>
+</div>
+<div class="listingblock">
+<div class="title">Example how to open a Modbus TCP/IP connection</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="k">Public</span> <span class="n">app</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="k">Dim</span> <span class="nv">res</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="c1">' Create an object to Modbus Poll</span>
+<span class="k">Set</span> <span class="n">app</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">"Mbpoll.Application"</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">Connection</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">' Select Modbus TCP/IP</span>
+<span class="n">app</span><span class="p">.</span><span class="n">IPVersion</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">app</span><span class="p">.</span><span class="n">IPAddress</span> <span class="o">=</span> <span class="s">"192.168.1.27"</span>
+<span class="n">app</span><span class="p">.</span><span class="n">ServerPort</span> <span class="o">=</span> <span class="mi">502</span>
+<span class="n">app</span><span class="p">.</span><span class="n">ConnectTimeout</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">app</span><span class="p">.</span><span class="n">ResponseTimeout</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">OpenConnection</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example how to setup a serial connection</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="k">Public</span> <span class="n">app</span> <span class="ow">As</span> <span class="kt">Object</span>
+<span class="k">Dim</span> <span class="nv">status</span> <span class="ow">As</span> <span class="kt">Integer</span>
+<span class="c1">' Create an object to Modbus Poll</span>
+<span class="k">Set</span> <span class="n">app</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">"Mbpoll.Application"</span><span class="p">)</span>
+
+<span class="n">app</span><span class="p">.</span><span class="n">Connection</span> <span class="o">=</span> <span class="mi">0</span>         <span class="c1">' Mode is serial port</span>
+<span class="n">app</span><span class="p">.</span><span class="n">SerialPort</span> <span class="o">=</span> <span class="mi">1</span>         <span class="c1">' Com port 1</span>
+<span class="n">app</span><span class="p">.</span><span class="n">BaudRate</span> <span class="o">=</span> <span class="mi">9600</span>        <span class="c1">' 9600 baud</span>
+<span class="n">app</span><span class="p">.</span><span class="n">Parity</span> <span class="o">=</span> <span class="mi">0</span>             <span class="c1">' None parity</span>
+<span class="n">app</span><span class="p">.</span><span class="n">Mode</span> <span class="o">=</span> <span class="mi">0</span>               <span class="c1">' RTU mode</span>
+<span class="n">app</span><span class="p">.</span><span class="n">ResponseTimeout</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1">' Wait 1000ms until give up</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">app</span><span class="p">.</span><span class="n">OpenConnection</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_closeconnection">12.2.12. CloseConnection</h4>
+<div class="paragraph">
+<p>Function <strong>CloseConnection</strong>() As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Return Value</dt>
+<dd>
+<p>Zero if success. Nonzero value if failed.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_read_functions_2">12.3. Read Functions</h3>
+<div class="paragraph">
+<p>The following functions do the same as you setup in the read/write definition dialog (F8).
+Read functions are associated with a Modbus Poll document. (The window with data)<br>
+.Example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="c1">' First a Modbus Poll document is needed.</span>
+<span class="k">Public</span> <span class="n">doc</span> <span class="ow">As</span> <span class="kt">Object</span>
+
+<span class="k">Set</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">CreateObject</span><span class="p">(</span><span class="s">"Mbpoll.Document"</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">doc</span><span class="p">.</span><span class="n">ReadCoils</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1">' Read 100 coils every 1000ms</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You must create a Read before you can use properties to get data.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_readcoils">12.3.1. ReadCoils</h4>
+<div class="paragraph">
+<p>Function <strong>ReadCoils</strong>(SlaveID As Integer, Address As Long, Quantity As Integer, ScanRate As Long) As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Return Value</dt>
+<dd>
+<p>True if success. False if not success</p>
+</dd>
+<dt class="hdlist1">Parameters</dt>
+<dd>
+<p><strong>SlaveID:</strong> The slave address 1 to 255<br>
+<strong>Address:</strong> The data address (Base 0)<br>
+<strong>Quantity:</strong> The number of data. 1 to 2000<br>
+<strong>ScanRate:</strong> 0 to 3600000ms</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_readdiscreteinputs">12.3.2. ReadDiscreteInputs</h4>
+<div class="paragraph">
+<p>Function <strong>ReadDiscreteInputs</strong>(SlaveID As Integer, Address As Long, Quantity As Integer, ScanRate As Long) As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Return Value</dt>
+<dd>
+<p>True if success. False if not success</p>
+</dd>
+<dt class="hdlist1">Parameters</dt>
+<dd>
+<p><strong>SlaveID:</strong> The slave address 1 to 255<br>
+<strong>Address:</strong> The data address (Base 0)<br>
+<strong>Quantity:</strong> The number of data. 1 to 2000<br>
+<strong>ScanRate:</strong> 0 to 3600000ms</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_readholdingregisters">12.3.3. ReadHoldingRegisters</h4>
+<div class="paragraph">
+<p>Function <strong>ReadHoldingRegisters</strong>(SlaveID As Integer, Address As Long, Quantity As Integer, ScanRate As Long) As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Return Value</dt>
+<dd>
+<p>True if success. False if not success</p>
+</dd>
+<dt class="hdlist1">Parameters</dt>
+<dd>
+<p><strong>SlaveID:</strong> The slave address 1 to 255<br>
+<strong>Address:</strong> The data address (Base 0)<br>
+<strong>Quantity:</strong> The number of data. 1 to 125<br>
+<strong>ScanRate:</strong> 0 to 3600000ms</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_readinputregisters">12.3.4. ReadInputRegisters</h4>
+<div class="paragraph">
+<p>Function <strong>ReadInputRegisters</strong>(SlaveID As Integer, Address As Long, Quantity As Integer, ScanRate As Long) As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Return Value</dt>
+<dd>
+<p>True if success. False if not success</p>
+</dd>
+<dt class="hdlist1">Parameters</dt>
+<dd>
+<p><strong>SlaveID:</strong> The slave address 1 to 255<br>
+<strong>Address:</strong> The data address (Base 0)<br>
+<strong>Quantity:</strong> The number of data. 1 to 125<br>
+<strong>ScanRate:</strong> 0 to 3600000ms</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_showwindow">12.3.5. ShowWindow</h4>
+<div class="paragraph">
+<p><strong>ShowWindow()</strong><br>
+As default Modbus document windows are hidden. The ShowWindow function makes Modbus Poll visible and show the document with data content.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_byteorder">12.3.6. ByteOrder</h4>
+<div class="paragraph">
+<p>Property <strong>ByteOrder</strong> As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Sets the byte order used by Longs, Floats and Doubles properties.<br>
+0 = Big-endian (Default)<br>
+1 = Little-endian byte swap<br>
+2 = Big-endian byte swap<br>
+3 = Little-endian</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><strong>Example for Longs:</strong><br>
+Byte Order: Big-endian<br>
+The decimal number 123456789 or in hexadecimal 07 5B CD 15<br>
+Order as they come over the wire in a Modbus message: 07 5B CD 15</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Syntax</dt>
+<dd>
+<p><strong>ByteOrder</strong> [=newvalue]</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_readresult">12.3.7. ReadResult</h4>
+<div class="paragraph">
+<p>Use this property to check if communication established with Read is running successful.</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>ReadResult</strong> As Integer</p>
+</div>
+<div class="paragraph">
+<p><strong>Return Value:</strong><br>
+0 = SUCCESS<br>
+1 = TIMEOUT ERROR<br>
+2 = CRC ERROR<br>
+3 = RESPONSE ERROR (The response was not the expected slave id, function or address)<br>
+4 = WRITE ERROR<br>
+5 = READ ERROR<br>
+6 = PORT NOT OPEN ERROR<br>
+10 = DATA UNINITIALIZED<br>
+11 = INSUFFICIENT BYTES RECEIVED<br>
+16 = BYTE COUNT ERROR<br>
+19 = TRANSACTION ID ERROR<br>
+81h = ILLEGAL FUNCTION<br>
+82h = ILLEGAL DATA ADDRESS<br>
+83h = ILLEGAL DATA VALUE<br>
+84h = SERVER DEVICE FAILURE<br>
+85h = ACKNOWLEDGE<br>
+86h = SERVER DEVICE BUSY<br>
+87h = NAK-NEGATIVE ACKNOWLEDGMENT<br>
+8Ah = GATEWAY PATH UNAVAILABLE<br>
+8Bh = GATEWAY TARGET DEVICE FAILED TO RESPOND<br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_writeresult">12.3.8. WriteResult</h4>
+<div class="paragraph">
+<p>Return a write result as an integer.<br>
+Use this function to check if a write was successful. The value is DATA_UNINITIALIZED until the result from the slave is available. See <strong>ReadResult</strong> for a list of possible values.</p>
+</div>
+<div class="paragraph">
+<p>Property <strong>WriteResult</strong> As Integer</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automation_data_properties">12.4. Automation data properties</h3>
+<div class="paragraph">
+<p>The below properties are used to set or get values in the internal write/read arrays in Modbus Poll.
+The Index used is not a Modbus Address. The Index always counts from 0 no matter of the address used.
+The data properties are associated with a Modbus Poll document. (The window with data)</p>
+</div>
+<div class="paragraph">
+<p><strong>Example 1:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="c1">' doc is assumed created first. See Excel example.</span>
+<span class="n">doc</span><span class="p">.</span><span class="n">SRegisters</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">doc</span><span class="p">.</span><span class="n">SRegisters</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">doc</span><span class="p">.</span><span class="n">SRegisters</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1234</span>
+<span class="c1">' Write 3 registers stored in Modbus Poll internal array</span>
+<span class="c1">' to Modbus address 100 (40101)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">doc</span><span class="p">.</span><span class="n">WriteMultipleRegisters</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example 2 with floating point values:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="vb"><span class="n">doc</span><span class="p">.</span><span class="n">Floats</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.3</span>
+<span class="n">doc</span><span class="p">.</span><span class="n">Floats</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">10.5</span>
+<span class="n">doc</span><span class="p">.</span><span class="n">Floats</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1234.12</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">doc</span><span class="p">.</span> <span class="n">WriteMultipleRegisters</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="s">"Write the 6 register stored in Modbus Poll
+' 6 Registers are written as float is 32 bit wide.</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_coils">12.4.1. Coils</h4>
+<div class="paragraph">
+<p>Property <strong>Coils</strong>(Index As Integer) As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Sets a coil in the write array structure or return a coil from the read array.</p>
+</dd>
+<dt class="hdlist1">Syntax</dt>
+<dd>
+<p><strong>Coils</strong>(Index) [=newvalue]</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sregisters">12.4.2. SRegisters</h4>
+<div class="paragraph">
+<p>Property <strong>SRegisters</strong>(Index As Integer) As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Sets a register in the write array structure or return a register from the read array.</p>
+</dd>
+<dt class="hdlist1">Syntax</dt>
+<dd>
+<p><strong>SRegisters</strong> (Index) [=newvalue]</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uregisters">12.4.3. URegisters</h4>
+<div class="paragraph">
+<p>Property <strong>URegisters</strong>(Index As Integer) As Long</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Sets a register in the write array structure or return a register from the read array.</p>
+</dd>
+<dt class="hdlist1">Syntax</dt>
+<dd>
+<p>Object. <strong>URegisters</strong> (Index) [=newvalue]</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ints_32">12.4.4. Ints_32</h4>
+<div class="paragraph">
+<p>Property <strong>Ints_32</strong>(Index As Integer) As Double</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Sets a 32 Bit integer in the write array structure or return an integer from the read array.</p>
+</dd>
+<dt class="hdlist1">Syntax</dt>
+<dd>
+<p>Ints_32 (Index) [=newvalue]</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uints_32">12.4.5. UInts_32</h4>
+<div class="paragraph">
+<p>Property <strong>UInts_32</strong>(Index As Integer) As Double</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Sets a 32 Bit unsigned integer in the write array structure or return an unsigned integer from the read array.</p>
+</dd>
+<dt class="hdlist1">Syntax</dt>
+<dd>
+<p>UInts_32 (Index) [=newvalue]</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ints_64">12.4.6. Ints_64</h4>
+<div class="paragraph">
+<p>Property <strong>Ints_64</strong>(Index As Integer) As Double</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Sets a 64 Bit integer in the write array structure or return an integer from the read array.</p>
+</dd>
+<dt class="hdlist1">Syntax</dt>
+<dd>
+<p>Ints_64 (Index) [=newvalue]</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uints_64">12.4.7. UInts_64</h4>
+<div class="paragraph">
+<p>Property <strong>UInts_64</strong>(Index As Integer) As Double</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Sets a 64 Bit unsigned integer in the write array structure or return an unsigned integer from the read array.</p>
+</dd>
+<dt class="hdlist1">Syntax</dt>
+<dd>
+<p>UInts_64 (Index) [=newvalue]</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_floats">12.4.8. Floats</h4>
+<div class="paragraph">
+<p>Property <strong>Floats</strong>(Index As Integer) As Single</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Sets a float in the write array structure or return a float from the read array.</p>
+</dd>
+<dt class="hdlist1">Syntax</dt>
+<dd>
+<p>Floats* (Index) [=newvalue]</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_doubles">12.4.9. Doubles</h4>
+<div class="paragraph">
+<p>Property <strong>Doubles</strong>(Index As Integer) As Double</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Sets a double in the write array structure or return a double from the read array.</p>
+</dd>
+<dt class="hdlist1">Syntax</dt>
+<dd>
+<p>Doubles* (Index) [=newvalue]</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_automation_write_functions">12.5. Automation Write Functions</h3>
+<div class="paragraph">
+<p>The write functions write the values stored in the array filled by the properties. The functions are associated with a Modbus Poll document. (The window with data)</p>
+</div>
+<div class="sect3">
+<h4 id="_writesinglecoil">12.5.1. WriteSingleCoil</h4>
+<div class="paragraph">
+<p>Function <strong>WriteSingleCoil</strong>(SlaveID As Integer, Address As Long) As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Return Value</dt>
+<dd>
+<p>True if write array is ready and the data are sent. False if array empty or error in parameters.<br>
+The controlling application is responsible for verifying the write operation by reading back the value written.</p>
+</dd>
+<dt class="hdlist1">Parameters</dt>
+<dd>
+<p><strong>SlaveID:</strong> The slave address 0 to 255<br>
+<strong>Address:</strong> The data address (Base 0)</p>
+</dd>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Writes the first coil stored in the write array.<br>
+Function 05 is used.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_writesingleregister">12.5.2. WriteSingleRegister</h4>
+<div class="paragraph">
+<p>Function <strong>WriteSingleRegister</strong> (SlaveID As Integer, Address As Long) As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Return Value</dt>
+<dd>
+<p>True if write array is ready and the data are sent. False if array empty or error in parameters.<br>
+The controlling application is responsible for verifying the write operation by reading back the value written.<br></p>
+</dd>
+<dt class="hdlist1">Parameters</dt>
+<dd>
+<p><strong>SlaveID:</strong> The slave address 0 to 255<br>
+<strong>Address:</strong> The data address (Base 0)</p>
+</dd>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Writes the first register stored in the write array.<br>
+Function 06 is used.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_writemultiplecoils">12.5.3. WriteMultipleCoils</h4>
+<div class="paragraph">
+<p>Function <strong>WriteMultipleCoils</strong>(SlaveID As Integer, Address As Long, Quantity As Integer) As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Return Value</dt>
+<dd>
+<p>True if write array is ready and the data are sent. False if array empty or error in parameters.<br>
+The controlling application is responsible for verifying the write operation by reading back the values written.<br></p>
+</dd>
+<dt class="hdlist1">Parameters</dt>
+<dd>
+<p><strong>SlaveID:</strong> The slave address 0 to 255<br>
+<strong>Address:</strong> The data address (Base 0)<br>
+<strong>Quantity</strong> The number of data. 1 to 1968</p>
+</dd>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Write the coils stored in the write array.<br>
+Function 15 is used.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_writemultipleregisters">12.5.4. WriteMultipleRegisters</h4>
+<div class="paragraph">
+<p>Function <strong>WriteMultipleRegisters</strong>(SlaveID As Integer, Address As Long, Quantity As Integer) As Integer</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Return Value</dt>
+<dd>
+<p>True if write array is ready and the data are sent. False if array empty or error in parameters.<br>
+The controlling application is responsible for verifying the write operation by reading back the value written.<br></p>
+</dd>
+<dt class="hdlist1">Parameters</dt>
+<dd>
+<p><strong>SlaveID:</strong> The slave address 0 to 255<br>
+<strong>Address:</strong> The data address (Base 0)<br>
+<strong>Quantity:</strong> The number of data. 1 to 123<br></p>
+</dd>
+<dt class="hdlist1">Description</dt>
+<dd>
+<p>Write the registers stored in the write array.<br>
+Function 16 is used.</p>
+</dd>
+</dl>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exception_and_error_messages">13. Exception and error messages</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Modbus Exceptions and error messages are display in red text in 2<sup>nd</sup> line in each window.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/mbpoll-error-line.png" alt="Error line"></span></p>
+</div>
+<div class="sect2">
+<h3 id="_modbus_exception_codes">13.1. Modbus Exception Codes</h3>
+<div class="paragraph">
+<p>Modbus exceptions are errors returned from the slave device.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 27.2727%;">
+<col style="width: 63.6364%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Code</th>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Illegal Function</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The function code received in the query is not an allowable action for the server (or slave). This may be because the function code is only applicable to newer devices, and was not implemented in the unit selected. It could also indicate that the server (or slave) is in the wrong state to process a request of this type, for example because it is not configured and is being asked to return register values.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">02</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Illegal Data Address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The data address received in the query is not an
+allowable address for the server. More specifically, the combination of reference number and transfer length is
+invalid. For a controller with 100 registers, the PDU addresses the first register as 0, and the last one as 99. If a request is submitted with a starting register address of 96 and a quantity of registers of 4, then this request will successfully operate (address-wise at least) on registers 96, 97, 98, 99. If a request is submitted with a starting register address of 96 and a quantity of registers of 5, then this request will fail with Exception Code 0x02 “Illegal Data Address” since it attempts to operate on registers 96, 97, 98, 99 and 100, and there is no register with address 100.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">03</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Illegal Data Value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A value contained in the query data field is not an allowable value for server (or slave). This indicates a fault in the structure of the remainder of a complex request, such as that the implied length is incorrect. It specifically does NOT mean that a data item submitted for storage in a register has a value outside the expectation of the application program, since the MODBUS protocol is unaware of the significance of any particular value of any particular register.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">04</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Server Device Failure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An unrecoverable error occurred while the server (or slave) was attempting to perform the requested action.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">05</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Acknowledge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specialized use in conjunction with programming commands.<br>
+The server (or slave) has accepted the request and is processing it, but a long duration of time will be required to do so. This response is returned to prevent a timeout error from occurring in the client (or master). The client (or master) can next issue a Poll Program Complete message to determine if processing is completed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">06</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Server Device Busy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specialized use in conjunction with programming commands.<br>
+The server (or slave) is engaged in processing a long–duration program command. The client (or master) should retransmit the message later when the server (or slave) is free.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gateway Path Unavailable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specialized use in conjunction with gateways, indicates that the gateway was unable to allocate an internal communication path from the input port to the output port for processing the request. Usually means that the gateway is misconfigured or overloaded.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gateway Target Device Failed to Respond</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specialized use in conjunction with gateways, indicates that no response was obtained from the target device. Usually means that the device is not present on the network.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_modbus_poll_error_messages">13.2. Modbus Poll error messages</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Error message</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timeout Error</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The response is not received within the expected time.
+Check the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connection</p>
+</li>
+<li>
+<p>Serial settings such as Baud rate etc.</p>
+</li>
+<li>
+<p>Modbus mode, RTU or ASCII</p>
+</li>
+<li>
+<p>Slave ID</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Response Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The response is not the expected one. Different slave ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CRC Error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The CRC value of the received response is not correct.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Write Error</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This is an error reported by the serial driver. This could happen if a USB/RS232/485 converter is used and the USB cable is unplugged. There are 4 types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Break condition</p>
+</li>
+<li>
+<p>I/O error</p>
+</li>
+<li>
+<p>Serial connection error</p>
+</li>
+<li>
+<p>Output buffer overflow</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Write error using TCP/IP connection is normally caused by lost connection.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read Error</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>This is an error reported by the serial driver. There are 6 types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Framing error</p>
+</li>
+<li>
+<p>Character buffer overrun</p>
+</li>
+<li>
+<p>Parity error</p>
+</li>
+<li>
+<p>Input buffer overflow</p>
+</li>
+<li>
+<p>I/O error</p>
+</li>
+<li>
+<p>Break condition</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Read error using TCP/IP connection is normally caused by lost connection.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Insufficient bytes received</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The response is not the expected length.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Byte count error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The byte count in the response is not correct. Compared to the expected.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transaction ID error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It is used for transaction pairing, the MODBUS server copies in the response the transaction identifier of the request.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-05-04 22:03:36 +0200
+</div>
+</div>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .cd {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\obj\Debug\PMS-92.csprojAssemblyReference.cache
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\obj\Debug\PMS-92.csproj.CoreCompileInputs.cache
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\PMS-92.exe.config
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\PMS-92.exe
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\PMS-92.pdb
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\Json.Net.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\Newtonsoft.Json.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Buffers.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Memory.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Numerics.Vectors.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Text.Encodings.Web.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Text.Json.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.ValueTuple.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\Newtonsoft.Json.xml
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Buffers.xml
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Memory.xml
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Numerics.Vectors.xml
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Text.Encodings.Web.xml
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Text.Json.xml
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.ValueTuple.xml
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\obj\Debug\PMS-92.csproj.CopyComplete
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\obj\Debug\PMS-92.exe
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\obj\Debug\PMS-92.pdb
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\NModbus4.dll
+E:\Programms\мб 2\PMS-92(1)\PMS-92\PMS-92\bin\Debug\NModbus4.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\PMS-92.exe.config
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\PMS-92.exe
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\PMS-92.pdb
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\Json.Net.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\Newtonsoft.Json.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\NModbus4.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Buffers.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Memory.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Numerics.Vectors.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Text.Encodings.Web.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Text.Json.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.ValueTuple.dll
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\Newtonsoft.Json.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\NModbus4.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Buffers.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Memory.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Numerics.Vectors.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Text.Encodings.Web.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Text.Json.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\bin\Debug\System.ValueTuple.xml
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\obj\Debug\PMS-92.csprojAssemblyReference.cache
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\obj\Debug\PMS-92.csproj.CopyComplete
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\obj\Debug\PMS-92.exe
+D:\PMS-92\PMS-92(1)\PMS-92(1)\PMS-92\PMS-92\obj\Debug\PMS-92.pdb
